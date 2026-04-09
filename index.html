@@ -87,37 +87,43 @@
           <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin-top:18px;"><tbody>
             <tr><td style="padding:12px 0;"><h2>Projects</h2></td></tr>
             <tr><td>
+              <strong>32-bit RISC-V CPU Verification</strong> | SystemVerilog, UVM, Verilator
+              <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
+                <li>Architected a UVM-based coverage-driven verification environment for a 32-bit RISC-V (RV32IMZicsr) CPU with monitors, scoreboards, functional coverage models, and automated regression infrastructure.</li>
+                <li>Verified ISA compliance via co-simulation against a C++ golden reference model; debugged mismatches in ALU, branch, CSR, and interrupt pathways using waveform analysis and assertion-based checks.</li>
+                <li>Achieved 97% functional coverage across instruction categories; developed Python-based regression scripts to track coverage convergence and flag regressions.</li>
+              </ul>
+
+              <strong>UVM Based Verification for the YAPP Router</strong> | SystemVerilog, UVM, Python
+              <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
+                <li>Developed a UVM testbench for YAPP protocol verification, integrating HBUS, Clock/Reset, and multichannel UVCs into a single environment.</li>
+                <li>Created constrained-random and directed sequences to generate valid and corner-case scenarios for multiple YAPP channels; connected scoreboard using TLM analysis ports with reference model to detect dropped or corrupted packets.</li>
+                <li>Configured and synchronized multichannel sequencing to ensure correct interaction between YAPP and HBUS protocols during verification.</li>
+              </ul>
+
+              <strong>Functional Verification of HTAX Architecture</strong> | SystemVerilog, UVM, Python
+              <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
+                <li>Developed UVM-based verification environment with driver, monitor, scoreboard, and coverage components.</li>
+                <li>Designed assertions and functional coverage models to validate protocol correctness.</li>
+                <li>Built Python scripts to automate regression testing achieving 100% functional and 94.7% code coverage; debugged transaction and protocol-level issues using waveform analysis tools.</li>
+              </ul>
+
               <strong>RISC-V Single-Core Processor with Tomasulo Out-of-Order Scheduling</strong> | Verilog
               <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
-                <li>Designed a pipelined RTL datapath implementing fetch, decode, issue, execute, and writeback stages with full hazard handling.</li>
-                <li>Implemented Tomasulo out-of-order scheduling with 8-entry ROB and reservation stations using register renaming and CDB broadcast.</li>
-                <li>Developed a Verilog testbench to validate register updates, commit logic, and forwarding paths.</li>
+                <li>Designed a pipelined RTL datapath for a RISC-V single-core processor in Verilog, implementing fetch, decode, issue, execute, and writeback stages with full hazard handling.</li>
+                <li>Developed Verilog testbench to validate register updates, commit logic, and forwarding paths; debugged commit logic to ensure precise in-order retirement with correct program state.</li>
               </ul>
 
-              <strong>CPU Last Level Branch Predictor (LLBP) with TAGE in ZSim</strong> | C++, Python, Git
+              <strong>CVA6 Hardware Security Fuzzer (Ongoing)</strong> | Python, SystemVerilog
               <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
-                <li>Implemented a TAGE branch predictor with multiple prediction tables and global history lengths up to 3000 bits.</li>
-                <li>Integrated LLBP overriding, improving prediction accuracy in 7.2% of branches at 87.8% correctness and reducing mispredictions by up to 4x on SPEC CPU benchmarks.</li>
-                <li>Automated ZSim output parsing and cross-benchmark comparison across 13 benchmarks using Python scripts.</li>
+                <li>Implementing a mutation-based hardware fuzzer targeting the CVA6 RISC-V core; generating coverage-guided stimuli to trigger privilege escalation vulnerabilities and detect hardware security bugs.</li>
               </ul>
 
-              <strong>Branch Predictor Analysis via Trace-Driven Simulation</strong> | C++, Git, Linux
+              <strong>Last Level Branch Predictor (LLBP) with TAGE Implementation in ZSim</strong> | C++, Python, Git
               <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
-                <li>Ran 450-500 core-hours of ChampSim simulations on a SLURM/HPC cluster across 13 SPEC CPU2017 benchmarks.</li>
-                <li>Identified G-Share (H14, 16K) as optimal with mean IPC 1.274 and geomean MPKI 5.87.</li>
-                <li>Quantified perf/area tradeoffs, showing up to 95% MPKI reduction over Bimodal with modest hardware overhead.</li>
-              </ul>
-
-              <strong>Signature Path Prefetcher (SPP) Microarchitecture in ChampSim (Ongoing)</strong> | C++
-              <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
-                <li>Implementing SPP with signature generation, pattern table, and delta prediction for PC-correlated access streams.</li>
-                <li>Designed confidence-based filtering and adaptive throttling to control bandwidth pressure and avoid cache pollution.</li>
-              </ul>
-
-              <strong>SRRIP-HP Cache Replacement Policy in ZSim</strong> | C++, Git
-              <ul style="margin-top:6px; padding-left:20px; line-height:1.45;">
-                <li>Implemented SRRIP-HP with 2-bit re-reference prediction values for shared L3 cache.</li>
-                <li>Improved IPC by ~3-4% and reduced L3 MPKI by ~3% over LRU and LFU baselines on SPEC and PARSEC benchmarks.</li>
+                <li>Implemented a TAGE branch predictor in ZSim featuring multiple prediction tables with multiple global histories.</li>
+                <li>Integrated LLBP overriding, improving prediction accuracy in 7.2% of branches at 87.8% correctness, achieving up to 4x misprediction reduction on SPEC CPU benchmarks.</li>
+                <li>Automated ZSim output parsing, misprediction rate aggregation, and cross-benchmark comparison across 13 benchmarks using Python scripts.</li>
               </ul>
             </td></tr>
           </tbody></table>
